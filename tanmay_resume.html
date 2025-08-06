@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tanmay Baghel - Resume</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', 'Calibri', sans-serif;
+            color: #333;
+            background-color: #f5f5f5;
+            line-height: 1.5;
+        }
+
+        .resume-container {
+            width: 8.5in;
+            height: 11in;
+            margin: 0 auto;
+            display: flex;
+            background-color: white;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
+        }
+
+        .sidebar {
+            width: 2.4in;
+            background-color: #2c3e50;
+            color: white;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        .profile {
+            text-align: center;
+            margin-bottom: 15px;
+        }
+
+        .logo-container {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 12px;
+        }
+
+        .t-logo {
+            width: 55px;
+            height: 55px;
+            border: 3px solid #3498db;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #3498db 0%, #2980b9 50%, #1f618d 100%);
+            box-shadow: 0 6px 20px rgba(52, 152, 219, 0.4);
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .t-logo::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(255,255,255,0.2), transparent);
+            animation: shine 4s infinite;
+        }
+
+        .t-logo::after {
+            content: '';
+            position: absolute;
+            inset: 4px;
+            border-radius: 8px;
+            background: linear-gradient(135deg, rgba(255,255,255,0.1), transparent);
+            pointer-events: none;
+        }
+
+        .t-letter {
+            font-size: 32px;
+            font-weight: 900;
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.4);
+            z-index: 1;
+            font-family: 'Arial Black', sans-serif;
+        }
+
+        @keyframes shine {
+            0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
+            50% { transform: translateX(100%) translateY(100%) rotate(45deg); }
+            100% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
+        }
+
+        .profile-name {
+            font-size: 20px;
+            font-weight: bold;
+            margin-bottom: 5px;
+            letter-spacing: 1px;
+        }
+
+        .profile-title {
+            font-size: 14px;
+            color: #ecf0f1;
+            margin-bottom: 12px;
+        }
+
+        .contact-info {
+            margin-bottom: 15px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 6px;
+            font-size: 12px;
+        }
+
+        .contact-icon {
+            width: 18px;
+            margin-right: 8px;
+            text-align: center;
+        }
+
+        .sidebar-section {
+            margin-bottom: 15px;
+        }
+
+        .sidebar-title {
+            font-size: 14px;
+            font-weight: bold;
+            margin-bottom: 8px;
+            position: relative;
+            text-transform: uppercase;
+        }
+
+        .sidebar-title:after {
+            content: "";
+            position: absolute;
+            bottom: -3px;
+            left: 0;
+            width: 45px;
+            height: 2px;
+            background-color: #3498db;
+        }
+
+        .sidebar-content {
+            font-size: 11px;
+        }
+
+        .skill-category {
+            margin-bottom: 8px;
+        }
+
+        .skill-category-title {
+            font-weight: bold;
+            margin-bottom: 4px;
+            color: #3498db;
+        }
+
+        .skill-list {
+            list-style-type: none;
+        }
+
+        .skill-item {
+            margin-bottom: 3px;
+            position: relative;
+            padding-left: 12px;
+        }
+
+        .skill-item:before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: #3498db;
+        }
+
+        .main-content {
+            width: 6.1in;
+            padding: 25px;
+            box-sizing: border-box;
+            overflow-y: auto;
+        }
+
+        .main-section {
+            margin-bottom: 18px;
+        }
+
+        .main-title {
+            font-size: 16px;
+            font-weight: bold;
+            color: #2c3e50;
+            margin-bottom: 10px;
+            position: relative;
+            text-transform: uppercase;
+        }
+
+        .main-title:after {
+            content: "";
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 70px;
+            height: 2px;
+            background-color: #3498db;
+        }
+
+        .education-item, .project-item, .achievement-item {
+            margin-bottom: 10px;
+        }
+
+        .education-title, .project-title, .achievement-title {
+            font-weight: bold;
+            font-size: 14px;
+            color: #2c3e50;
+        }
+
+        .education-subtitle {
+            font-style: italic;
+            margin-bottom: 4px;
+            font-size: 12px;
+        }
+
+        .education-date, .project-date {
+            color: #7f8c8d;
+            font-size: 12px;
+        }
+
+        .project-description, .achievement-description {
+            font-size: 13px;
+            margin-top: 5px;
+        }
+
+        .project-bullet, .achievement-bullet {
+            margin-left: 15px;
+            position: relative;
+            padding-left: 15px;
+            margin-bottom: 3px;
+            font-size: 13px;
+        }
+
+        .project-bullet:before, .achievement-bullet:before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: #3498db;
+        }
+
+        .gpa {
+            color: #3498db;
+            font-weight: bold;
+        }
+
+        .certificate-showcase {
+            margin-top: 15px;
+            padding: 15px;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            border-radius: 8px;
+            border-left: 4px solid #3498db;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .certificate-title {
+            font-weight: bold;
+            font-size: 14px;
+            color: #2c3e50;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+        }
+
+        .certificate-icon {
+            margin-right: 8px;
+            font-size: 16px;
+        }
+
+        .certificate-image {
+            width: 100%;
+            max-width: 300px;
+            height: auto;
+            border-radius: 6px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            transition: transform 0.3s ease;
+            margin: 8px 0;
+        }
+
+        .certificate-image:hover {
+            transform: scale(1.02);
+        }
+
+        .certificate-description {
+            font-size: 12px;
+            color: #666;
+            line-height: 1.4;
+            margin-top: 8px;
+        }
+
+        .image-placeholder {
+            width: 100%;
+            max-width: 300px;
+            height: 200px;
+            background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+            border: 2px dashed #3498db;
+            border-radius: 6px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: #3498db;
+            font-size: 12px;
+            text-align: center;
+            margin: 8px 0;
+        }
+
+        .placeholder-icon {
+            font-size: 24px;
+            margin-bottom: 8px;
+        }
+
+        @media print {
+            body {
+                background-color: white;
+            }
+
+            .resume-container {
+                box-shadow: none;
+                height: 100%;
+            }
+
+            .t-logo::before {
+                animation: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="resume-container">
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <div class="profile">
+                <div class="logo-container">
+                    <div class="t-logo">
+                        <div class="t-letter">T</div>
+                    </div>
+                </div>
+                <div class="profile-name">TANMAY BAGHEL</div>
+                <div class="profile-title">AI & ML Engineering Student</div>
+            </div>
+
+            <div class="contact-info">
+                <div class="contact-item">
+                    <div class="contact-icon">✉</div>
+                    <div><a href="mailto:tanmay.baghel2023@vitstudent.ac.in" style="color: white; text-decoration: none;">tanmay.baghel2023@vitstudent.ac.in</a></div>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon">📱</div>
+                    <div>+91 9927811777</div>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon">💼</div>
+                    <div><a href="https://github.com/TanmayBaghel" target="_blank" style="color: white; text-decoration: none;">github.com/TanmayBaghel</a></div>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon">🔗</div>
+                    <div><a href="https://www.linkedin.com/in/TanmayBaghel" target="_blank" style="color: white; text-decoration: none;">LinkedIn: TanmayBaghel</a></div>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon">🏫</div>
+                    <div>VIT, Vellore</div>
+                </div>
+            </div>
+
+            <div class="sidebar-section">
+                <div class="sidebar-title">Programming Languages</div>
+                <div class="sidebar-content">
+                    <div class="skill-list">
+                        <div class="skill-item">C/C++</div>
+                        <div class="skill-item">Python</div>
+                        <div class="skill-item">Java</div>
+                        <div class="skill-item">JavaScript</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="sidebar-section">
+                <div class="sidebar-title">Frameworks & Technologies</div>
+                <div class="sidebar-content">
+                    <div class="skill-list">
+                        <div class="skill-item">React.js</div>
+                        <div class="skill-item">Transformers</div>
+                        <div class="skill-item">Streamlit</div>
+                        <div class="skill-item">Pandas</div>
+                        <div class="skill-item">OpenAI API</div>
+                        <div class="skill-item">Gemini API</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="sidebar-section">
+                <div class="sidebar-title">Databases</div>
+                <div class="sidebar-content">
+                    <div class="skill-list">
+                        <div class="skill-item">MySQL</div>
+                        <div class="skill-item">MongoDB</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="sidebar-section">
+                <div class="sidebar-title">Languages</div>
+                <div class="sidebar-content">
+                    <div class="skill-list">
+                        <div class="skill-item">English (Fluent)</div>
+                        <div class="skill-item">Hindi (Native)</div>
+                        <div class="skill-item">German (A1 Level)</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <div class="main-section">
+                <div class="main-title">Education</div>
+                <div class="education-item">
+                    <div class="education-title">B.Tech Computer Science & Engineering (AI & ML)</div>
+                    <div class="education-subtitle">Vellore Institute of Technology, Vellore</div>
+                    <div class="education-date">2023 - 2027 | <span class="gpa">CGPA: 9.42</span></div>
+                </div>
+                <div class="education-item">
+                    <div class="education-title">Senior School Certificate</div>
+                    <div class="education-subtitle">Air Force School, Agra</div>
+                    <div class="education-date">2022 - 2023 | <span class="gpa">86.8%</span></div>
+                </div>
+                <div class="education-item">
+                    <div class="education-title">Secondary School Certificate</div>
+                    <div class="education-subtitle">Air Force School, Agra</div>
+                    <div class="education-date">2020 - 2021 | <span class="gpa">89.6%</span></div>
+                </div>
+            </div>
+
+            <div class="main-section">
+                <div class="main-title">Projects</div>
+                <div class="project-item">
+                    <div class="project-title">Generative AI - Product Feature Extractor</div>
+                    <div class="project-description">
+                        <div class="project-bullet">Developed an AI-powered system to automatically extract key product features from unstructured text using Large Language Models (LLMs)</div>
+                        <div class="project-bullet">Leveraged generative AI for semantic understanding and generated structured outputs from product descriptions, specifications, and customer reviews</div>
+                        <div class="project-bullet">Enabled real-time extraction of attributes like specifications, functional features, and user sentiment insights</div>
+                        <div class="project-bullet">Technologies: Python, OpenAI API, Gemini, Transformers, Pandas, Streamlit</div>
+                    </div>
+                </div>
+
+                <div class="project-item">
+                    <div class="project-title">ShopSphere - E-commerce Website (Frontend)</div>
+                    <div class="project-description">
+                        <div class="project-bullet">Built a fully responsive front-end e-commerce website focused on user interface and client-side functionality</div>
+                        <div class="project-bullet">Showcased modern web design principles with interactive product displays and simulated shopping cart experience</div>
+                        <div class="project-bullet">Implemented client-side data management using JavaScript and localStorage</div>
+                        <div class="project-bullet">Technologies: HTML, CSS, JavaScript, React.js</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="main-section">
+                <div class="main-title">Achievements & Leadership</div>
+                <div class="achievement-item">
+                    <div class="achievement-bullet"><strong>Merit Scholarship - VIT (2024-25):</strong> Awarded Merit Scholarship by School of Computer Science and Engineering in recognition of outstanding academic performance, exceptional dedication, and academic excellence</div>
+                    <div class="achievement-bullet"><strong>Generative AI Certification - IBM:</strong> Completed professional certification focusing on generative models like GPT-2 and Gemini-2.0-flash, covering AI/ML principles, ethical implications, and chatbot creation</div>
+                    <div class="achievement-bullet"><strong>Program Representative:</strong> Served as official representative for CSE with AI & ML specialization, acting as liaison between faculty and students while organizing departmental events</div>
+                    <div class="achievement-bullet"><strong>AI Course Certification - Teachnook (IIT Roorkee):</strong> Completed comprehensive course on Artificial Intelligence covering machine learning, deep learning, neural networks, and real-world AI applications</div>
+                    <div class="achievement-bullet">Strong foundation in generative AI, prompt engineering, and hands-on implementation of AI solutions</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
